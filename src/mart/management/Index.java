@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package student.management;
+package mart.management;
 
 /**
  *
@@ -131,7 +131,7 @@ public class Index extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 140, 47));
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 150, 47));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 370, 780));
 
