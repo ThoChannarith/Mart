@@ -8,6 +8,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -26,7 +28,9 @@ public class PanelNavigate extends javax.swing.JPanel {
     private JButton[] buttons;  // To store all buttons for easy background management
     
     
+    
     public PanelNavigate(Master frame) {
+       
         initComponents();
         init(frame);
     }
@@ -69,6 +73,16 @@ public class PanelNavigate extends javax.swing.JPanel {
             });
             add(button); // Add button to the panel
         }
+        
+        // Add ActionListener to the Category button to switch to Category panel
+        btnCategory.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                PanelCategory panelCategory = new PanelCategory(frame);
+                frame.showPanel(panelCategory);
+                frame.revalidate();
+            }
+        });
     }
 
     // Method to create buttons

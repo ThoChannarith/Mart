@@ -2,11 +2,15 @@
 package mart;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 public class Master extends javax.swing.JFrame {
-
+    
+     private JPanel contentPanel;
+    
     public Master() {
         initComponents();
         init();
@@ -22,8 +26,26 @@ public class Master extends javax.swing.JFrame {
         
         PanelNavigate panelNavigate = new PanelNavigate(this);
         add(panelNavigate, BorderLayout.WEST);
+        
+        // Center panel for dynamic content
+        contentPanel = new JPanel();
+        contentPanel.setLayout(new CardLayout());  // Use CardLayout for swapping panels easily
+        add(contentPanel, BorderLayout.CENTER);
+        
+    }
+    // Method to swap content in the contentPanel
+    public void showPanel(JPanel panel) {
+        contentPanel.removeAll();  // Remove any existing content
+        contentPanel.add(panel);   // Add the new panel
+        contentPanel.revalidate(); // Refresh the panel
+        contentPanel.repaint();    // Repaint the panel
     }
 
+    // Getter for the contentPanel
+    public JPanel getContentPanel() {
+        return contentPanel;
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,7 +66,7 @@ public class Master extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -53,6 +75,7 @@ public class Master extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
