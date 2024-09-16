@@ -3,6 +3,7 @@ package mart;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -15,7 +16,7 @@ public class Master extends javax.swing.JFrame {
         initComponents();
         init();
     }
-    public void init() {
+    public final void init() {
         // setting frame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1500, 900);
@@ -29,6 +30,7 @@ public class Master extends javax.swing.JFrame {
         
         // Center panel for dynamic content
         contentPanel = new JPanel();
+        contentPanel.setPreferredSize(new Dimension(1100, 800)); // Set specific width and height
         contentPanel.setLayout(new CardLayout());  // Use CardLayout for swapping panels easily
         add(contentPanel, BorderLayout.CENTER);
         

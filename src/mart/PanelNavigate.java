@@ -34,7 +34,7 @@ public class PanelNavigate extends javax.swing.JPanel {
         initComponents();
         init(frame);
     }
-    public void init(Master frame) {
+    public final void init(Master frame) {
         setBackground(Color.WHITE);
         setOpaque(true);
         setPreferredSize(new Dimension(250, 900)); // Set the preferred size of the panel
@@ -79,7 +79,18 @@ public class PanelNavigate extends javax.swing.JPanel {
             @Override
             public void mouseClicked(MouseEvent evt) {
                 PanelCategory panelCategory = new PanelCategory(frame);
+                //frame.setSize(1100, 800);
                 frame.showPanel(panelCategory);
+                frame.revalidate();
+            }
+        });
+        
+        // Add ActionListener to the Item button to switch to Category panel
+        btnItem.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                PanelItem panelItem = new PanelItem(frame);
+                frame.showPanel(panelItem);
                 frame.revalidate();
             }
         });

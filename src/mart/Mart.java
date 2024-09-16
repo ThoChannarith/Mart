@@ -24,11 +24,11 @@ public class Mart extends javax.swing.JFrame {
         setLocationRelativeTo(null);  // Center the frame on the screen
         setVisible(true);
         
-//        PanelLogin panelLogin = new PanelLogin(this);
-//        setContentPane(panelLogin);
+        PanelLogin panelLogin = new PanelLogin(this);
+        setContentPane(panelLogin);
                
-        PanelResetPassword panelResetPassword = new PanelResetPassword(this);
-        setContentPane(panelResetPassword);
+//        PanelResetPassword panelResetPassword = new PanelResetPassword(this);
+//        setContentPane(panelResetPassword);
         
     }
 

@@ -1,26 +1,21 @@
 
 package mart;
-
 import java.awt.Color;
-import java.awt.Dimension;
 
+public class PanelItem extends javax.swing.JPanel {
 
-public class PanelCategory extends javax.swing.JPanel {
-
-
-    public PanelCategory(Master frame) {
+    public PanelItem(Master frame) {
         initComponents();
         init(frame);
     }
+    
     public final void init(Master frame){
         setBackground(Color.WHITE);
         setOpaque(true);
-        setPreferredSize(new Dimension(1100,800));
-        setBounds(300,0,1100,800);
         setLayout(null);
     }
 
-  
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,7 +31,7 @@ public class PanelCategory extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
