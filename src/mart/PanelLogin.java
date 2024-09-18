@@ -85,7 +85,7 @@ public class PanelLogin extends javax.swing.JPanel {
         btnLogin.setMaximumSize(new java.awt.Dimension(120, 40));
         btnLogin.setBounds(70, 320, 230, 45);
         btnLogin.setText("Login");
-        btnLogin.setFont(new Font("sansserif", Font.BOLD, 18));
+        btnLogin.setFont(new Font("sansserif", Font.BOLD, 18)); 
         add(btnLogin);
 
         // Add action listener for "Forgot Password?" label

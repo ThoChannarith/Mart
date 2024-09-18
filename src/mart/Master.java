@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class Master extends javax.swing.JFrame {
     
-     private JPanel contentPanel;
+    private JPanel contentPanel;
     
     public Master() {
         initComponents();

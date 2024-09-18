@@ -2,6 +2,7 @@
 package mart;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -29,14 +30,14 @@ public class PanelCategory extends javax.swing.JPanel {
         
         // title page
         labelTitlePage = new JLabel("Category");
-        labelTitlePage.setFont(new java.awt.Font("SansSerif", Font.BOLD, 20));
-        labelTitlePage.setBounds(50, 50, 150, 50);
+        labelTitlePage.setFont(new java.awt.Font("SansSerif", Font.BOLD, 40));
+        labelTitlePage.setBounds(50, 50, 200, 50);
         add(labelTitlePage);
         
         // search box
         txtSearch = new JTextField();
         txtSearch.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 14));
-        txtSearch.setBounds(90, 150, 230, 30);
+        txtSearch.setBounds(90, 130, 230, 35);
         add(txtSearch);
         
         // search
@@ -44,8 +45,18 @@ public class PanelCategory extends javax.swing.JPanel {
         ImageIcon logoIcon = new ImageIcon(getClass().getResource("/images/search.png"));
         Image scaledImage = logoIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         labelSearch.setIcon(new ImageIcon(scaledImage));
-        labelSearch.setBounds(330, 150, 30, 30);
+        labelSearch.setBounds(330, 130, 30, 35);
+        labelSearch.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(labelSearch);
+        
+        // button add
+        btnAdd = new JButton();
+        btnAdd.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 16));
+        btnAdd.setForeground(Color.white);
+        btnAdd.setBackground(new Color(55, 158, 255));
+        btnAdd.setText("Add");
+        btnAdd.setBounds(1090, 130, 100, 35);
+        add(btnAdd);
     }
 
 
