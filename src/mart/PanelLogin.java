@@ -109,7 +109,7 @@ public class PanelLogin extends javax.swing.JPanel {
             }
         });
         
-        // Add MouseListener to btnConfirm
+        // Add MouseListener to button login
         btnLogin.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
