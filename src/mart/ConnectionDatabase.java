@@ -10,26 +10,12 @@ public class ConnectionDatabase {
     private static final String password = "rithxboy";
     
     // Method to establish the connection
-    public Connection connect() {
-        Connection connection = null;
-        try {
-            // Attempt to establish a connection
-            connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Connection to PostgreSQL established!");
-        } catch (SQLException e) {
-            System.out.println("Connection failed: " + e.getMessage());
-        }
+    public Connection connect() throws SQLException {
+        Connection connection = DriverManager.getConnection(url, user, password);
         return connection;
     }
     
-    public static void main(String[] args) {
-        ConnectionDatabase db = new ConnectionDatabase();
-        Connection connection = db.connect();
-
-        // Do database operations here
-
-        
-    }
+    
 }
 
 

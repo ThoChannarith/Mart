@@ -1,11 +1,19 @@
 
 package mart;
 
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.border.LineBorder;
 
 public class PanelLogin extends javax.swing.JPanel {
@@ -18,6 +26,7 @@ public class PanelLogin extends javax.swing.JPanel {
     private JLabel labelErrPassword;
     private JLabel labelForgotPassword;
     private JButton btnLogin;
+    
     
     public PanelLogin(Mart frame) {
         initComponents();
@@ -115,7 +124,7 @@ public class PanelLogin extends javax.swing.JPanel {
             public void mouseClicked(MouseEvent e) {
                 String email = txtEmail.getText().trim();
                 String password = (new String(txtPassword.getPassword()).trim());
-                
+                                
                 if(email.isEmpty() && password.isEmpty()){
                     labelErrEmail.setText("input email!");
                     txtEmail.setBorder(new LineBorder(Color.RED, 2));
@@ -130,6 +139,37 @@ public class PanelLogin extends javax.swing.JPanel {
                     labelErrPassword.setText("input password!");
                     txtPassword.setBorder(new LineBorder(Color.RED, 2));
                 }
+                else{
+                    try{
+                        ConnectionDatabase connectionDatabase = new ConnectionDatabase();
+                        Connection connection = connectionDatabase.connect();
+                        if(authenticateUser(connection, email, password)){
+                            
+                            frame.setVisible(false);
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(frame, "Invalid email or password.");
+                            txtEmail.setText("");
+                            txtPassword.setText("");
+                        }
+                        connection.close();
+                    }
+                    catch(SQLException ex){
+                        ex.printStackTrace(); // Handle SQL exceptions
+                    }
+                }
+            }
+            private static boolean authenticateUser(Connection connection, String email, String password) {
+                String query = "SELECT * FROM tbl_user WHERE email = ? AND password = ?"; // Replace 'users' with your table name
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setString(1, email);
+                    preparedStatement.setString(2, password);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    return resultSet.next(); // Returns true if a record is found
+                } catch (SQLException e) {
+                    e.printStackTrace(); // Handle SQL exceptions
+                }
+                return false;
             }
         });
         
