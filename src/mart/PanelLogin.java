@@ -148,7 +148,7 @@ public class PanelLogin extends javax.swing.JPanel {
                             frame.setVisible(false);
                         }
                         else{
-                            JOptionPane.showMessageDialog(frame, "Invalid email or password.");
+                            JOptionPane.showMessageDialog(frame, "Invalid email");
                             txtEmail.setText("");
                             txtPassword.setText("");
                         }
@@ -160,7 +160,7 @@ public class PanelLogin extends javax.swing.JPanel {
                 }
             }
             private static boolean authenticateUser(Connection connection, String email, String password) {
-                String query = "SELECT * FROM tbl_user WHERE email = ? AND password = ?"; // Replace 'users' with your table name
+                String query = "SELECT * FROM tbl_user WHERE email = ? AND password = ? AND is_active = 't'"; // Replace 'users' with your table name
                 try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                     preparedStatement.setString(1, email);
                     preparedStatement.setString(2, password);
